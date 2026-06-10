@@ -1,0 +1,7 @@
+target/
+output_*/
+*.wav
+__pycache__/
+*.pyc
+.DS_Store
+/tmp/

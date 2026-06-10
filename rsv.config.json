@@ -1,0 +1,26 @@
+{
+  "models_dir": "models",
+  "temp_dir": "/tmp/rsv",
+  "ffmpeg_path": null,
+  "asr": {
+    "model": "large-v3-turbo",
+    "device": "auto",
+    "compute_type": "float16",
+    "num_speakers": null
+  },
+  "translate": {
+    "model": "facebook/m2m100_418M",
+    "device": "auto",
+    "beam_size": 5,
+    "max_length": 256
+  },
+  "tts": {
+    "model": "Qwen3-TTS",
+    "device": "auto",
+    "voice_clone": false,
+    "reference_audio": null,
+    "reference_text": null
+  },
+  "python_path": "python3",
+  "scripts_dir": "scripts"
+}

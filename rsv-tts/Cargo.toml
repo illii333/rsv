@@ -1,0 +1,13 @@
+[package]
+name = "rsv-tts"
+version = "0.1.0"
+edition = "2021"
+description = "RSV - Text-to-Speech / Voice cloning module (Qwen3-TTS)"
+
+[dependencies]
+rsv-core = { path = "../rsv-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"

@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "rsv-core",
+    "rsv-asr",
+    "rsv-translate",
+    "rsv-tts",
+    "rsv-cli",
+]
+resolver = "2"
