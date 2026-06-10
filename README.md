@@ -16,12 +16,52 @@ rsv/
 
 每个 crate 独立，可单独测试。
 
+## 安装
+
+### 1. 系统依赖
+
+```bash
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Python + FFmpeg
+sudo pacman -S python3 python-pip ffmpeg   # Arch
+# 或 brew install python3 ffmpeg           # macOS
+# 或 apt install python3 python3-pip ffmpeg # Ubuntu/Debian
+```
+
+### 2. Python 虚拟环境
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. 安装 Python 依赖
+
+```bash
+pip install faster-whisper
+pip install transformers torch sentencepiece soundfile pydub
+pip install qwen-tts
+```
+
+### 4. 编译 Rust
+
+```bash
+cargo build
+```
+
 ## 快速开始
 
 ```bash
-# 编译
-cargo build
+# 激活虚拟环境（每次新终端都需要）
+source venv/bin/activate
 
+# 一键管线（ASR → 翻译 → TTS → 合成视频）
+export LD_LIBRARY_PATH="/tmp/cublas_fix:${LD_LIBRARY_PATH:-}"
+bash scripts/quick_run.sh input.mp4
+
+# 或分步使用：
 # 语音识别
 cargo run -- asr input.mp4 -m large-v3-turbo
 
@@ -37,20 +77,6 @@ cargo run -- tts "你好世界" -o output/tts
 - **Rust** (edition 2021)
 - **Python 3.8+** — 模型运行依赖 Python
 - **FFmpeg** — 音视频处理
-
-### Python 依赖
-
-```bash
-# ASR
-pip install faster-whisper
-
-# 翻译
-pip install transformers torch sentencepiece
-
-# TTS (至少选一个)
-pip install edge-tts              # 免费在线，无需 GPU
-# 或 Qwen3-TTS (根据具体安装方式)
-```
 
 ## CLI 用法
 
